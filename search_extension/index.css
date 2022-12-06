@@ -1,0 +1,55 @@
+body {
+    width: 400px;
+
+    margin: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin: 0;
+    padding: 10px 0;
+
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+.form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form__query {
+    width: 100%;
+
+    padding: 10px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#query {
+    height: 20px;
+    width: 300px;
+
+    border: 0;
+    border-bottom: 1px solid #0081AF;
+}
+
+#query:focus {
+    outline: none;
+}
+
+.form__button {
+    fill: #0081AF;
+}
+
+.form__button:hover {
+    fill: #00ABE7;
+}
