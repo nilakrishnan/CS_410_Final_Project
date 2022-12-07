@@ -1,9 +1,8 @@
-from email import charset
-import requests
 from bs4 import BeautifulSoup
-from rank_bm25 import BM25Okapi
-from nltk.corpus import gutenberg
+import requests
+
 import nltk.data
+from rank_bm25 import BM25Okapi
 
 # futher development:
 # 1. remove special chars (\n, \a, !, ., ...) from text before bm25
@@ -21,6 +20,7 @@ def find(url, query):
     # turn text into corpus --> array of sentences
     tokenizer = nltk.data.load('tokenizers/punkt/english.pickle')
     corpus = tokenizer.tokenize(text)
+
     tokenized_corpus = [doc.split(" ") for doc in corpus]
     bm25 = BM25Okapi(tokenized_corpus)
 
@@ -28,10 +28,10 @@ def find(url, query):
     tokenized_query = query.split(" ")
     doc_scores = bm25.get_scores(tokenized_query)
     # print(doc_scores[doc_scores != 0])  # see how many doc scores are > 0
-    res = bm25.get_top_n(tokenized_query, corpus, n=1)
+    res = bm25.get_top_n(tokenized_query, corpus, n=5)
     return res
 
 # testing suite
-query = "windy London"
-url = 'https://www.gutenberg.org/files/2701/2701-h/2701-h.htm'
-print(find(url, query))
+# query = "spots"
+# url = 'https://en.wikipedia.org/wiki/Dalmatian_(dog)'
+# print(find(url, query))

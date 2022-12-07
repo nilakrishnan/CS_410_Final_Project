@@ -1,37 +1,24 @@
-// chrome.runtime.onInstalled.addListener(() => {
-//     chrome.action.setBadgeText({
-//       text: "OFF",
-//     });
-// });
-
-// const extensions = 'https://developer.chrome.com/docs/extensions'
-// const webstore = 'https://developer.chrome.com/docs/webstore'
-
-// chrome.action.onClicked.addListener(async (tab) => {
-//     if (tab.url.startsWith(extensions) || tab.url.startsWith(webstore)) {
-//       // Retrieve the action badge to check if the extension is 'ON' or 'OFF'
-//       const prevState = await chrome.action.getBadgeText({ tabId: tab.id });
-//       // Next state will always be the opposite
-//       const nextState = prevState === 'ON' ? 'OFF' : 'ON'
-
-//       // Set the action badge to the next state
-//       await chrome.action.setBadgeText({
-//         tabId: tab.id,
-//         text: nextState,
-//     });
-// }});
-
-
 chrome.runtime.onMessage.addListener(data => {
-    if (data.type === 'notification') {
-        chrome.notifications.create(
-            '',
-            {
-                type: 'basic',
-                title: 'Notify!',
-                message: data.message || 'Notify!',
-                iconUrl: 'icons/icon-128.png',
+    if (data.type === "query") {
+        console.log("searching query...")
+        chrome.tabs.query({ active: true }, (tabs) => {
+            let tab = tabs[0]
+            if (!tab.url.includes("chrome://")) {
+                chrome.scripting.executeScript({
+                    target: { tabId: tab.id },
+                    files: ["script.js"]
+                }, result => {
+                    chrome.runtime.sendMessage({
+                        type: "result",
+                        sentences: ["Sentence 1", "Sentence 2", "Sentence 3", "Sentence 4", "Sentence 5"]
+                    })
+                })
             }
-        );
+        })
+    } else if (data.type === "clear") {
+        console.log("cleared query")
+        chrome.runtime.sendMessage({
+            type: "reset"
+        })
     }
-});
+})

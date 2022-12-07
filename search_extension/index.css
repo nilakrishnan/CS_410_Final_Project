@@ -1,5 +1,5 @@
 body {
-    width: 400px;
+    width: 350px;
 
     margin: 10px;
 
@@ -25,19 +25,21 @@ body {
 }
 
 .form__query {
-    width: 100%;
+    width: 330px;
 
-    padding: 10px 0;
+    padding: 10px;
 
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 #query {
-    height: 20px;
-    width: 300px;
+    height: 24px;
+    width: 250px;
 
+    padding: 0;
+    padding-right: 15px;
     border: 0;
     border-bottom: 1px solid #0081AF;
 }
@@ -52,4 +54,21 @@ body {
 
 .form__button:hover {
     fill: #00ABE7;
+}
+
+.form__result--hidden {
+    display: none;
+}
+
+.form__result--visible {
+    height: 255px;
+    width: 330px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.form__results {
+    font-size: 15px;
 }

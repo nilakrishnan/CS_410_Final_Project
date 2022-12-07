@@ -1,6 +1,6 @@
 {
-  "name": "Browser Search",
-  "description": "Searches through current webpage to find relevant text to user's query",
+  "name": "Page Search",
+  "description": "Find relevant text on current webpage based on inputted query.",
   "manifest_version": 3,
   "version": "1.0",
   "icons": {
@@ -11,12 +11,27 @@
   "action": {
     "default_popup": "index.html"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": [
+        "script.js"
+      ]
+    }
+  ],
+  "host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
   "permissions": [
     "notifications",
+    "tabs",
     "activeTab",
     "scripting",
-    "storage",
-    "declarativeContent"
+    "storage"
   ],
   "background": {
     "service_worker": "background.js"
