@@ -7,7 +7,11 @@
 
 ## Project Structure
 
-## Setup
+## Backend Usage
+1. Download this project and unzip the directory.
+2. In your termianl, navigate to the `search_extension` folder and run `python3 bm25.py [url] [query]` with the appropriate URL and query you wish to test out.
+
+## Extension Setup
 1. Download this project and unzip the directory.
 2. Navigate to the Extensions page by entering `chrome://extensions` in a new tab. Alternatively, click on the Extensions menu puzzle button and select *Manage Extensions* at the bottom of the menu.
 3. Enable *Developer Mode* by clicking the toggle switch next to Developer mode.
