@@ -9,7 +9,7 @@
 
 ## Backend Usage
 1. Download this project and unzip the directory.
-2. In your termianl, navigate to the `search_extension` folder and run `python3 bm25.py [url] [query]` with the appropriate URL and query you wish to test out.
+2. In your terminal, navigate to the `search_extension` folder and run `python3 bm25.py [url] [query]` with the appropriate URL and query you wish to test out.
 
 ## Extension Setup
 1. Download this project and unzip the directory.
