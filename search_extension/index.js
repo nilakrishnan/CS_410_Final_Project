@@ -21,8 +21,6 @@ chrome.runtime.onMessage.addListener((data) => {
 	let result = document.getElementById("result")
 
 	if (data.type === "result") {
-		console.log("results found!")
-
 		result.className = "form__result--visible"
 
 		for (i in data.sentences) {
@@ -31,10 +29,8 @@ chrome.runtime.onMessage.addListener((data) => {
 			sentence.className = "form__results"
 			result.appendChild(sentence)
 		}
-		console.log(data.sentences)
-	} else if (data.type === "reset") {
-		console.log("reset")
 
+	} else if (data.type === "reset") {
 		result.className = "form__result--hidden"
 		result.innerHTML = ''
 	}

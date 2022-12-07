@@ -61,8 +61,8 @@ body {
 }
 
 .form__result--visible {
-    height: 255px;
     width: 330px;
+    padding: 0 10px 10px 10px;
 
     display: flex;
     flex-direction: column;
@@ -71,4 +71,7 @@ body {
 
 .form__results {
     font-size: 15px;
+
+    margin: 0;
+    padding-top: 20px;
 }
