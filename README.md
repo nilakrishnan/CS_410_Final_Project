@@ -3,6 +3,8 @@
 #### Team: Text Retrievers
 #### Members: Nila Krishnan & Ajit Singh
 
+<font size=5>[Demo Video Link](https://youtu.be/8bDu_KHNICA)</font>
+
 ## Project Description
 *Page Search* is a Chrome Extension that allows the user to search any webpage with text and displays relevant sentences that correspond to the user's inputted query. The query can be a single word or phrase, allowing the user to search for topics within an article, wiki page, etc.
 
